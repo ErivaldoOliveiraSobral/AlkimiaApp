@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AlkimiaApp</string>
+    <string name="login">Digite seu nome de usuário</string>
+    <string name="password">Digite sua Senha</string>
 </resources>
