@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AlkimiaApp.iml" filepath="$PROJECT_DIR$/AlkimiaApp.iml" />
+      <module fileurl="file://C:\AlkimiaApp\AlkimiaApp.iml" filepath="C:\AlkimiaApp\AlkimiaApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\AlkimiaApp\app\app.iml" filepath="C:\AlkimiaApp\app\app.iml" />
     </modules>
   </component>
 </project>
