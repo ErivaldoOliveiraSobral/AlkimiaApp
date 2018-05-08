@@ -11,7 +11,7 @@ public class RetrofitInicializador {
 
     private final Retrofit retrofit;
 
-    public RetrofitInicializador{
+    public RetrofitInicializador(){
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://alkimiasimplesassim.com.br/api/listaProdutos/")
                 .addConverterFactory(JacksonConverterFactory.create()).build();
