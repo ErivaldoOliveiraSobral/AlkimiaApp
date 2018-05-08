@@ -23,7 +23,7 @@ public class TelaInicialActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Call<ProdutoSync> call = new RetrofitInicializador().getProdutoService().listaProdutos();
+        final retrofit2.Call<List<Produto>> call = new RetrofitInicializador().getProdutoService().listaProdutos();
 /*
         call.enqueue(new Callback<List<Produto>>() {
             @Override

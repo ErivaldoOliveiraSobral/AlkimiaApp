@@ -14,13 +14,13 @@ public class RetrofitInicializador {
     private final Retrofit retrofit;
     public RetrofitInicializador(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://alkimiasimplesassim.com.br/api/listaProdutos/")
+                .baseUrl("https://alkimiasimplesassim.com.br/api/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .client(client.build())
                 .build();
     }
 
     public ProdutoService getProdutoService() {
-        return (ProdutoService) retrofit.create(Produto.class);
+        return retrofit.create(Produto.class);
     }
 }

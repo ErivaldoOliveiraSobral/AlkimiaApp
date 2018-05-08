@@ -12,9 +12,9 @@ import retrofit2.http.POST;
  */
 
 public interface ProdutoService {
-    @POST("produto")
+    @POST("listaProdutos")
     Call<Void> insere(@Body Produto produto);
 
-    @GET
+    @GET("listaProdutos")
     Call<List<Produto>> listaProdutos();
 }
