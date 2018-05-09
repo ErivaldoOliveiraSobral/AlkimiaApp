@@ -6,9 +6,10 @@ import android.util.Log;
 import android.widget.Toast;
 import java.util.List;
 
-import br.com.alkimiasimplesassim.alkimiaapp.ProdutoSync;
-import br.com.alkimiasimplesassim.alkimiaapp.RetrofitInicializador;
+
 import br.com.alkimiasimplesassim.alkimiaapp.model.Produto;
+import br.com.alkimiasimplesassim.alkimiaapp.retrofit.RetrofitInicializador;
+import br.com.alkimiasimplesassim.alkimiaapp.retrofit.sync.ProdutoSync;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
