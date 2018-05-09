@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 String senha = txtSenha.getText().toString();
 
                 //Toast.makeText(MainActivity.this, "Usuário: " + nome + "; Senha: " + senha, Toast.LENGTH_LONG).show();
-                if (nome.equals("admin") && senha.equals("1234")) {
+                if (nome.equals("") && senha.equals("")) {
                     Intent intent = new Intent(MainActivity.this, TelaInicialActivity.class);
                     startActivity(intent);
 

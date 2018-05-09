@@ -1,4 +1,4 @@
-package br.com.alkimiasimplesassim.alkimiaapp;
+package br.com.alkimiasimplesassim.alkimiaapp.model;
 
 import java.io.Serializable;
 

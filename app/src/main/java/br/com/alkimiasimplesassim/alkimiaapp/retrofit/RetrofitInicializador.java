@@ -1,5 +1,6 @@
-package br.com.alkimiasimplesassim.alkimiaapp;
+package br.com.alkimiasimplesassim.alkimiaapp.retrofit;
 
+import br.com.alkimiasimplesassim.alkimiaapp.services.ProdutoService;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -12,6 +13,7 @@ public class RetrofitInicializador {
 
     OkHttpClient.Builder client = new OkHttpClient.Builder();
     private final Retrofit retrofit;
+
     public RetrofitInicializador(){
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://alkimiasimplesassim.com.br/api/")
@@ -21,6 +23,6 @@ public class RetrofitInicializador {
     }
 
     public ProdutoService getProdutoService() {
-        return retrofit.create(Produto.class);
+        return retrofit.create(ProdutoService.class);
     }
 }
