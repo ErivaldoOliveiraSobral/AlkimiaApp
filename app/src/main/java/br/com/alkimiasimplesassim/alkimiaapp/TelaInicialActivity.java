@@ -3,7 +3,11 @@ package br.com.alkimiasimplesassim.alkimiaapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,6 +22,8 @@ import retrofit2.Response;
 public class TelaInicialActivity extends AppCompatActivity {
 
     public List<Produto> produtos;
+    public ArrayList<String> lista = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class TelaInicialActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        ListView listaProdutos = (ListView) findViewById(R.id.lvProdutos);
         Call<ProdutoSync> produtoSyncCall = new RetrofitInicializador().getProdutoService().listaProdutos();
 
         produtoSyncCall.enqueue(new Callback<ProdutoSync>() {
@@ -41,6 +48,7 @@ public class TelaInicialActivity extends AppCompatActivity {
                 for (Produto produto:
                      produtos) {
                     Log.i("", "Usuário: " + produto.getNomeUsuario() + " Produto: " + produto.getProduto());
+                    lista.add(produto.getProduto());
                 }
             }
 
@@ -49,5 +57,13 @@ public class TelaInicialActivity extends AppCompatActivity {
                 Log.e("OnFailure", t.getMessage());
             }
         });
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                lista
+        );
+
+        listaProdutos.setAdapter(arrayAdapter);
     }
 }
