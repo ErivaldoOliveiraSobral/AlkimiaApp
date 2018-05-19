@@ -30,8 +30,6 @@ import retrofit2.Response;
 
 public class TelaInicialActivity extends AppCompatActivity {
 
-    public ArrayList<String> lista = new ArrayList<>();
-    public String[] teste = {"Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho","Porra", "Caralho"};
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_sincronizar, menu);
@@ -61,7 +59,7 @@ public class TelaInicialActivity extends AppCompatActivity {
 
             case R.id.menu_sincronizar:
 
-                Toast.makeText(this, "Sincronizando...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Sincronizado", Toast.LENGTH_SHORT).show();
 
                 ProdutoDAO dao = new ProdutoDAO(this);
                 dao.limpar();
@@ -118,7 +116,11 @@ public class TelaInicialActivity extends AppCompatActivity {
         lvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(TelaInicialActivity.this, "Clicou", Toast.LENGTH_LONG).show();
+                Produto p = (Produto) adapterView.getItemAtPosition(i);
+
+                Intent detalhesProduto = new Intent(TelaInicialActivity.this, DetalhesProdutoActivity.class);
+                detalhesProduto.putExtra("produto", p);
+                startActivity(detalhesProduto);
             }
         });
     }

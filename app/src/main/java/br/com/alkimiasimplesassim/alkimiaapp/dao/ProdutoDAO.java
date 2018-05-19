@@ -115,4 +115,13 @@ public class ProdutoDAO extends SQLiteOpenHelper  {
         String clear = "DELETE FROM " + NOME_TABELA;
         db.execSQL(clear);
     }
+
+    public List buscaPorID(String id) {
+        List l = new ArrayList<>();
+
+        l.add("Merda");
+        l.add("Buceta");
+
+        return l;
+    }
 }
