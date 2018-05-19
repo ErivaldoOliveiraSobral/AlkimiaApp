@@ -23,6 +23,10 @@ public class Produto implements Serializable {
     private String preco;
     private String status;
 
+    public String getProduto() {
+        return produto;
+    }
+
     public String getId() {
         return id;
     }
@@ -37,10 +41,6 @@ public class Produto implements Serializable {
 
     public void setNumeroPedido(String numeroPedido) {
         this.numeroPedido = numeroPedido;
-    }
-
-    public String getProduto() {
-        return produto;
     }
 
     public void setProduto(String produto) {
@@ -141,5 +141,10 @@ public class Produto implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + " - " + getProduto();
     }
 }

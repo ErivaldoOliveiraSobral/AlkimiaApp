@@ -1,5 +1,6 @@
 package br.com.alkimiasimplesassim.alkimiaapp.retrofit.sync;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alkimiasimplesassim.alkimiaapp.model.Produto;
@@ -9,9 +10,9 @@ import br.com.alkimiasimplesassim.alkimiaapp.model.Produto;
  */
 
 public class ProdutoSync {
-    private List<Produto> produto;
+    private ArrayList<Produto> produto;
 
-    public List<Produto> getProduto() {
+    public ArrayList<Produto> getProduto() {
         return produto;
     }
 }
