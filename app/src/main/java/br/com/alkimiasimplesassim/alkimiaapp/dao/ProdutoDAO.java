@@ -109,4 +109,10 @@ public class ProdutoDAO extends SQLiteOpenHelper  {
 
         return produtos;
     }
+
+
+    public void limpar() {
+        String clear = "DELETE FROM " + NOME_TABELA;
+        db.execSQL(clear);
+    }
 }
