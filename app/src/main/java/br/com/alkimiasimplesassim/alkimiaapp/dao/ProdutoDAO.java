@@ -68,8 +68,10 @@ public class ProdutoDAO extends SQLiteOpenHelper  {
         cv.put("Produto", produto.getProduto());
         cv.put("Peso", produto.getPeso());
         cv.put("NomeUsuario", produto.getNomeUsuario());
+        cv.put("Endereco", produto.getEndereco());
         cv.put("Bairro", produto.getBairro());
         cv.put("Cidade", produto.getCidade());
+        cv.put("Cep", produto.getCep());
         cv.put("Pais", produto.getPais());
         cv.put("Estado", produto.getEstado());
         cv.put("Telefone", produto.getTelefone());
@@ -94,8 +96,10 @@ public class ProdutoDAO extends SQLiteOpenHelper  {
             p.setProduto(cursor.getString(cursor.getColumnIndex("Produto")));
             p.setPeso(cursor.getString(cursor.getColumnIndex("Peso")));
             p.setNomeUsuario(cursor.getString(cursor.getColumnIndex("NomeUsuario")));
+            p.setEndereco(cursor.getString(cursor.getColumnIndex("Endereco")));
             p.setBairro(cursor.getString(cursor.getColumnIndex("Bairro")));
             p.setCidade(cursor.getString(cursor.getColumnIndex("Cidade")));
+            p.setCep(cursor.getString(cursor.getColumnIndex("Cep")));
             p.setPais(cursor.getString(cursor.getColumnIndex("Pais")));
             p.setEstado(cursor.getString(cursor.getColumnIndex("Estado")));
             p.setTelefone(cursor.getString(cursor.getColumnIndex("Telefone")));
@@ -110,18 +114,8 @@ public class ProdutoDAO extends SQLiteOpenHelper  {
         return produtos;
     }
 
-
     public void limpar() {
         String clear = "DELETE FROM " + NOME_TABELA;
         db.execSQL(clear);
-    }
-
-    public List buscaPorID(String id) {
-        List l = new ArrayList<>();
-
-        l.add("Merda");
-        l.add("Buceta");
-
-        return l;
     }
 }
