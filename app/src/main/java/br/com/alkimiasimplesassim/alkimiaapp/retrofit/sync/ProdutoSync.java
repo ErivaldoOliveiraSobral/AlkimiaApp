@@ -10,9 +10,9 @@ import br.com.alkimiasimplesassim.alkimiaapp.model.Produto;
  */
 
 public class ProdutoSync {
-    private ArrayList<Produto> produto;
+    private List<Produto> produto;
 
-    public ArrayList<Produto> getProduto() {
+    public List<Produto> getProduto() {
         return produto;
     }
 }

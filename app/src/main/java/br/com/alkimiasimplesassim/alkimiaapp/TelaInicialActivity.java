@@ -12,10 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -71,8 +69,6 @@ public class TelaInicialActivity extends AppCompatActivity {
 
                 listar(lvProdutos, produtos);
 
-                //Intent refresh = new Intent(this, TelaInicialActivity.class);
-                //startActivity(refresh);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -93,12 +89,12 @@ public class TelaInicialActivity extends AppCompatActivity {
         produtoSyncCall.enqueue(new Callback<ProdutoSync>() {
             @Override
             public void onResponse(Call<ProdutoSync> call, Response<ProdutoSync> response) {
-                ArrayList<Produto> produtos = response.body().getProduto();
+                List<Produto> produtos = response.body().getProduto();
+                ProdutoDAO dao = new ProdutoDAO(context);
                 for (Produto p : produtos) {
-                    ProdutoDAO dao = new ProdutoDAO(context);
                     dao.insere(p);
-                    dao.close();
                 }
+                dao.close();
             }
 
             @Override
