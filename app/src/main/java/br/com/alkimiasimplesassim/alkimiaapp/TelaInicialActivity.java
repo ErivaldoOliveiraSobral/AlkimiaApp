@@ -28,6 +28,10 @@ import retrofit2.Response;
 
 public class TelaInicialActivity extends AppCompatActivity {
 
+    private ListView getListView() {
+        return findViewById(R.id.lvProdutos);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_sincronizar, menu);
@@ -39,10 +43,7 @@ public class TelaInicialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
-        ListView lvProdutos = findViewById(R.id.lvProdutos);
-
-        // Faz a chamada para o Web Service e salva no banco de dados
-        //chamadaREST(this);
+        ListView lvProdutos = getListView();
 
         ProdutoDAO dao = new ProdutoDAO(this);
         List<Produto> produtos = dao.busca();
@@ -63,11 +64,10 @@ public class TelaInicialActivity extends AppCompatActivity {
                 dao.limpar();
 
                 chamadaREST(this);
-                ListView lvProdutos = findViewById(R.id.lvProdutos);
                 List<Produto> produtos = dao.busca();
                 dao.close();
 
-                listar(lvProdutos, produtos);
+                listar(getListView(), produtos);
 
                 break;
         }
@@ -107,6 +107,7 @@ public class TelaInicialActivity extends AppCompatActivity {
     private void listar(ListView lvProdutos, List lista) {
 
         ArrayAdapter<Produto> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
+        arrayAdapter.notifyDataSetChanged();
         lvProdutos.setAdapter(arrayAdapter);
 
         lvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
