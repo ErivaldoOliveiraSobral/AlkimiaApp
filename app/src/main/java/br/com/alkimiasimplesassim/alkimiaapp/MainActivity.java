@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
                 String senha = txtSenha.getText().toString();
 
                 //Toast.makeText(MainActivity.this, "Usuário: " + nome + "; Senha: " + senha, Toast.LENGTH_LONG).show();
-                if (nome.equals("") && senha.equals("")) {
+                if (nome.equals("admin") && senha.equals("admin")) {
                     Intent intent = new Intent(MainActivity.this, TelaInicialActivity.class);
                     startActivity(intent);
-
+                } else {
+                    Toast.makeText(MainActivity.this,"Senha inválida", Toast.LENGTH_LONG).show();
                 }
             }
         };
